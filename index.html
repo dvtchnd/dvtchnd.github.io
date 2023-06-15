@@ -20,31 +20,33 @@
       <div class="banner" id="banner">
         <img src="bg.jpg" alt="background" style="width: 100%">
          <h1> TOUR GUIDE </h1>
-         <button class="btn1" onclick="window.location.href='file:///C:/Users/dvtch/Downloads/build-a-website-dvtchnd-20230409T052319Z-001/dvtchnd.github.io/index.html#portfolio';">see portfolio</button>
+         <button class="btn1" onclick="window.location.href='file:///C:/Users/dvtch/Desktop/dvtchnd.github.io/index.html#portfolio';">see portfolio</button>
         <h4> Devita Chandra </h4>
       </div>
    </div>
   </div>
 
-  <div id="portfolio" class="portfolio">
-    <article class="indonesia">
+  <div id="portfolio">
+    <div>
+    <article class="negara">
       <img src="idn.jpg" alt="indo">
       <h2> Indonesia </h2>
        <p>Indonesia is home to a myriad of wonders, from the bustling metropolis of Jakarta to the tranquil 
        beaches of Bali. Immerse yourself in the vibrant traditions of the locals as we explore ancient 
        temples, witness traditional dance performances, READ MORE...</p>
     </article>
-    
-
-   <article class="japan">
+    </div>
+    <div>
+   <article class="negara">
       <img src="jp.png" alt="jepang">
       <h2> Japan </h2>
       <p>Immerse yourself in the vibrant cityscapes of Tokyo, where towering skyscrapers coexist with serene 
       Shinto shrines. Discover the historical wonders of Kyoto, home to majestic temples and exquisite 
       gardens, and experience the tranquility of traditional tea ceremonies. READ MORE...</p>
     </article>
-
-   <article class="korea">
+    </div>
+    <div>
+   <article class="negara">
      <img src="kr.jpg" alt="korea">
      <h2> Korea </h2>
       <p>Welcome to Korea, a land of captivating contrasts, where ancient traditions harmonize with modern 
@@ -53,29 +55,75 @@
       streets of Seoul, the vibrant capital city, where towering skyscrapers coexist with majestic palaces and 
       tranquil temples. READ MORE...</p>
    </article>
+   </div>
   </div>
 
   <div id="contact">
+  <div>
     <img src="ig.png" alt="instagram">
+    <h3>@devitatourguide</h3>
+  </div>
+  <div>
     <img src="yt.png" alt="youtube">
+    <h3>devitatourguide</h3>
+  </div>
+  <div>
     <img src="drive.png" alt="drive">
+    <h3>https://drive.google.com/devitatourguide</h3>
+  </div>
+  <div>
     <img src="telp.png" alt="telepon">
+    <h3>+62 8888 8888 888</h3>
+  </div>
   </div>
 
-  <div class="contact">
-    <h2>@devitatourguide</h2>
-    <h2>devitatourguide</h2>
-    <h2>https://drive.google.com/devitatourguide</h2>
-    <h2>+62 8888 8888 888</h2>
-  </div>
+  
 
   <div id="about">
-    <img src="profile.png" alt="profile">
     <p>As your tour guide, my primary goal is to make your travel experience enjoyable, seamless, and 
       memorable. I am a knowledgeable and enthusiastic individual with a passion for exploring new cultures 
       and sharing my expertise with others. With a deep appreciation for history, art, and local customs, 
       I will provide you with fascinating insights into the destinations we visit.</p>
+    <img src="profile.png" alt="profile">
   </div>
+
+  <script>
+    const homeSection = document.getElementById('home').offsetTop;
+    const portfolioSection = document.getElementById('portfolio').offsetTop;
+    const contactSection = document.getElementById('contact').offsetTop;
+    const aboutSection = document.getElementById('about').offsetTop;
+
+    document.addEventListener('scroll', () => {
+        const homeLink = document.querySelector('nav a[href="#home"]');
+        const portfolioLink = document.querySelector('nav a[href="#portfolio"]');
+        const contactLink = document.querySelector('nav a[href="#contact"]');
+        const aboutLink = document.querySelector('nav a[href="#about"]');
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition < portfolioSection) {
+            homeLink.classList.add('active');
+            portfolioLink.classList.remove('active');
+            contactLink.classList.remove('active');
+            aboutLink.classList.remove('active');
+        } else if (scrollPosition < contactSection) {
+            homeLink.classList.remove('active');
+            portfolioLink.classList.add('active');
+            contactLink.classList.remove('active');
+            aboutLink.classList.remove('active');
+        } else if (scrollPosition < aboutSection) {
+            homeLink.classList.remove('active');
+            portfolioLink.classList.remove('active');
+            contactLink.classList.add('active');
+            aboutLink.classList.remove('active');
+        }
+        else {
+            homeLink.classList.remove('active');
+            portfolioLink.classList.remove('active');
+            contactLink.classList.remove('active');
+            aboutLink.classList.add('active');
+        }
+    });
+</script>
 
 </body>
 </html>
